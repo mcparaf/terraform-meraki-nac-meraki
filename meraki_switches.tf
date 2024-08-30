@@ -183,6 +183,9 @@ resource "meraki_networks_switch_link_aggregations" "net_switch_link_aggregation
   switch_profile_ports = try(each.value.data.switch_profile_ports, local.defaults.meraki.networks.switch_link_aggregations.switch_profile_ports, null)
 
   depends_on = [ meraki_networks_devices_claim.net_device_claims ]
+  lifecycle {
+    prevent_destroy = true
+  }
 
 }
 
@@ -235,6 +238,9 @@ resource "meraki_networks_switch_port_schedules" "net_switch_port_schedules" {
   name             = try(each.value.data.name, local.defaults.meraki.networks.switch_port_schedules.name, null)
   port_schedule    = try(each.value.data.port_schedule, local.defaults.meraki.networks.switch_port_schedules.port_schedule, null)
   port_schedule_id = try(each.value.data.port_schedule_id, local.defaults.meraki.networks.switch_port_schedules.port_schedule_id, null)
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 
