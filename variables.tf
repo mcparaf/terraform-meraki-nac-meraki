@@ -26,4 +26,6 @@ variable "base_url" {
   type        = string
   default     = "https://api.meraki.com/"
 }
-
+variable "run_once" {
+  default = true
+}

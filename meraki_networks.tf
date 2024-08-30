@@ -74,6 +74,7 @@ locals {
 resource "meraki_networks_devices_claim" "net_device_claims" {
   for_each   = { for i, v in local.networks_switch_serials : i => v }
   network_id = each.value.network_id
+  count = var.run_once ? 1 : 0
   parameters = {
     serials = each.value.data
     }
