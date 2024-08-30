@@ -184,7 +184,7 @@ resource "meraki_networks_switch_link_aggregations" "net_switch_link_aggregation
 
   depends_on = [ meraki_networks_devices_claim.net_device_claims ]
   lifecycle {
-    prevent_destroy = true
+    # prevent_destroy = true
   }
 
 }
