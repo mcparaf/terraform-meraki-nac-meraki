@@ -26,6 +26,7 @@ variable "base_url" {
   type        = string
   default     = "https://api.meraki.com/"
 }
-variable "run_once" {
+variable "claim_devices" {
+  type    = bool
   default = true
 }

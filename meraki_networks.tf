@@ -72,9 +72,8 @@ locals {
 #  For example meraki_networks_devices_claim "net_device_switches" "net_device_wireless"
   
 resource "meraki_networks_devices_claim" "net_device_claims" {
-  for_each   = { for i, v in local.networks_switch_serials : i => v }
+  for_each = var.claim_devices ? { for i, v in local.networks_switch_serials : i => v } : {}
   network_id = each.value.network_id
-  count = var.run_once ? 1 : 0
   parameters = {
     serials = each.value.data
     }
